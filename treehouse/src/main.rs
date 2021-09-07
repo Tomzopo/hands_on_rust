@@ -1,4 +1,3 @@
-#![warn(clippy::all, clippy::pedantic)]
 use std::io::stdin;
 
 #[derive(Debug)]
@@ -60,17 +59,16 @@ fn main() {
 
         let known_visitor = visitor_list.iter().find(|visitor| visitor.name == name);
 
-        match known_visitor {
-            Some(visitor) => visitor.greet_visitor(),
-            None => {
-                if name.is_empty() {
-                    break;
-                } else {
-                    println!("{} is not on the visitor list", name);
-                    visitor_list.push(Visitor::new(&name, VisitorAction::Probation, 0));
-                }
-            }
+        if let Some(visitor) = known_visitor {
+            visitor.greet_visitor();
         }
+
+        if name.is_empty() {
+            break;
+        }
+
+        println!("{} is not on the visitor list", name);
+        visitor_list.push(Visitor::new(&name, VisitorAction::Probation, 0));
     }
 
     println!("Final list of visitors:");

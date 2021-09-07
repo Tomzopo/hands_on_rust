@@ -1,5 +1,7 @@
 [workspace]
 
 members = [
-	"treehouse"
+	"treehouse",
+	"flappy",
+	"dungeoncrawl"
 ]
