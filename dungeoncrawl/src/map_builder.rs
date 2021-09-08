@@ -39,7 +39,7 @@ impl MapBuilder {
             let mut overlap = false;
 
             for r in self.rooms.iter() {
-                if r.intersect((&room)) {
+                if r.intersect(&room) {
                     overlap = true;
                 }
             }
