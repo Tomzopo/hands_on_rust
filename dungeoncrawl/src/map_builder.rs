@@ -38,7 +38,7 @@ impl MapBuilder {
 
             let mut overlap = false;
 
-            for r in self.rooms.iter() {
+            for r in &self.rooms {
                 if r.intersect(&room) {
                     overlap = true;
                 }
@@ -52,7 +52,7 @@ impl MapBuilder {
                     }
                 });
 
-                self.rooms.push(room)
+                self.rooms.push(room);
             }
         }
     }
